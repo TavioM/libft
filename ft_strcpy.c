@@ -6,20 +6,20 @@
 /*   By: ocmarout <ocmarout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/04 15:28:57 by ocmarout          #+#    #+#             */
-/*   Updated: 2020/05/04 15:29:57 by ocmarout         ###   ########.fr       */
+/*   Updated: 2020/05/07 12:44:32 by ocmarout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char *ft_strcpy(char *dest, const char *src)
+char	*ft_strcpy(char *dest, const char *src)
 {
 	int i;
 
 	i = 0;
 	while (src[i])
-	{   
+	{
 		dest[i] = src[i];
 		i++;
-	}   
+	}
 	dest[i] = '\0';
 	return (dest);
 }
