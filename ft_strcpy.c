@@ -1,18 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ocmarout <ocmarout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/21 16:52:32 by ocmarout          #+#    #+#             */
-/*   Updated: 2020/05/04 12:06:52 by ocmarout         ###   ########.fr       */
+/*   Created: 2020/05/04 15:28:57 by ocmarout          #+#    #+#             */
+/*   Updated: 2020/05/04 15:29:57 by ocmarout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-void	ft_putchar_fd(char c, int fd)
+char *ft_strcpy(char *dest, const char *src)
 {
-	write(fd, &c, 1);
+	int i;
+
+	i = 0;
+	while (src[i])
+	{   
+		dest[i] = src[i];
+		i++;
+	}   
+	dest[i] = '\0';
+	return (dest);
 }

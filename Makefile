@@ -6,7 +6,7 @@
 #    By: ocmarout <ocmarout@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/13 02:53:19 by ocmarout          #+#    #+#              #
-#    Updated: 2020/03/06 14:18:22 by ocmarout         ###   ########.fr        #
+#    Updated: 2020/05/07 12:05:26 by ocmarout         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,24 +39,24 @@ SRCS		=	ft_memset.c			\
 				ft_strtrim.c		\
 				ft_split.c			\
 				ft_itoa.c			\
+				ft_itoa_base.c		\
+				ft_utoa.c			\
+				ft_utoa_base.c		\
 				ft_strmapi.c		\
-				ft_putchar_fd.c		\
 				ft_putstr_fd.c		\
 				ft_putendl_fd.c		\
-				ft_putnbr_fd.c
-
-SRC_BNS		=	ft_lstnew.c			\
+				ft_putnbr_fd.c		\
+				ft_lstnew.c			\
 				ft_lstadd_front.c	\
 				ft_lstsize.c		\
 				ft_lstlast.c		\
-				ft_lstadd_backuis c	\
+				ft_lstadd_back.c	\
 				ft_lstdelone.c		\
 				ft_lstclear.c		\
 				ft_lstiter.c		\
 				ft_lstmap.c
 
 OBJS		=	${SRCS:.c=.o}
-OBJS_BNS	=	$(addprefix ${OBJS_DIR}, ${SRC_BNS:.c=.o})
 
 OBJS_DIR	=	./.objs/
 
@@ -83,11 +83,8 @@ ${OBJS_DIR}:
 ${OBJS_DIR}%.o : ${SRCS_DIR}%.c | ${OBJS_DIR}
 			${CC} ${CFLAGS} -c $< -o $@
 
-bonus	:	${NAME} ${OBJS_BNS}
-			${AR} $^
-			
 clean	:
-			${RM} -r ${OBJS_DIR} ${OBJ_BNS}
+			${RM} -r ${OBJS_DIR}
 
 fclean	:	clean
 			${RM} ${NAME}

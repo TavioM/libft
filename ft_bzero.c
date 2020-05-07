@@ -6,7 +6,7 @@
 /*   By: ocmarout <ocmarout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 15:35:04 by ocmarout          #+#    #+#             */
-/*   Updated: 2020/05/04 11:35:28 by ocmarout         ###   ########.fr       */
+/*   Updated: 2020/05/04 16:21:09 by ocmarout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_bzero(void *s, size_t n)
 {
 	char *str;
 
-	str = s;
+	str = (char *)s;
 	while (n != 0)
 		str[--n] = 0;
 }
