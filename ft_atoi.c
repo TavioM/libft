@@ -6,17 +6,11 @@
 /*   By: ocmarout <ocmarout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 15:29:51 by ocmarout          #+#    #+#             */
-/*   Updated: 2020/05/04 11:27:51 by ocmarout         ###   ########.fr       */
+/*   Updated: 2020/05/04 14:18:55 by ocmarout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-static int	ft_isspace(int c)
-{
-	if (c == ' ' || c == '\t' || c == '\n' || c == '\v' || c == '\f'
-			|| c == '\r')
-		return (1);
-	return (0);
-}
+#include "libft.h"
 
 int			ft_atoi(const char *str)
 {
