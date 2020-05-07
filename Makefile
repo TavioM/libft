@@ -6,7 +6,7 @@
 #    By: ocmarout <ocmarout@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/13 02:53:19 by ocmarout          #+#    #+#              #
-#    Updated: 2020/05/07 12:05:26 by ocmarout         ###   ########.fr        #
+#    Updated: 2020/05/07 14:14:33 by ocmarout         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,6 +42,7 @@ SRCS		=	ft_memset.c			\
 				ft_itoa_base.c		\
 				ft_utoa.c			\
 				ft_utoa_base.c		\
+				ft_check_base.c		\
 				ft_strmapi.c		\
 				ft_putstr_fd.c		\
 				ft_putendl_fd.c		\
