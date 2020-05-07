@@ -6,13 +6,13 @@
 /*   By: ocmarout <ocmarout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/21 17:08:01 by ocmarout          #+#    #+#             */
-/*   Updated: 2020/05/04 11:45:32 by ocmarout         ###   ########.fr       */
+/*   Updated: 2020/05/07 15:38:18 by ocmarout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr_fd(char *s, int fd)
+void	ft_putstr_fd(char const *s, int fd)
 {
 	if (!s)
 		return ;

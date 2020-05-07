@@ -6,13 +6,13 @@
 /*   By: ocmarout <ocmarout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/10 17:34:56 by ocmarout          #+#    #+#             */
-/*   Updated: 2020/05/04 15:29:50 by ocmarout         ###   ########.fr       */
+/*   Updated: 2020/05/07 15:48:22 by ocmarout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char		*ft_strdup(const char *src)
+char		*ft_strdup(char const *src)
 {
 	char *str;
 

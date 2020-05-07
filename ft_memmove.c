@@ -6,13 +6,13 @@
 /*   By: ocmarout <ocmarout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 17:10:52 by ocmarout          #+#    #+#             */
-/*   Updated: 2020/05/04 12:06:41 by ocmarout         ###   ########.fr       */
+/*   Updated: 2020/05/07 15:50:44 by ocmarout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+void	*ft_memmove(void *dst, void const *src, size_t len)
 {
 	unsigned int	i;
 	unsigned char	*dt;

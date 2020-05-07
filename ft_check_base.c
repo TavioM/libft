@@ -6,13 +6,13 @@
 /*   By: ocmarout <ocmarout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/07 14:10:08 by ocmarout          #+#    #+#             */
-/*   Updated: 2020/05/07 14:39:39 by ocmarout         ###   ########.fr       */
+/*   Updated: 2020/05/07 15:46:07 by ocmarout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_check_base(const char *base)
+int		ft_check_base(char const *base)
 {
 	int		i;
 

@@ -6,14 +6,14 @@
 /*   By: ocmarout <ocmarout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/04 11:20:21 by ocmarout          #+#    #+#             */
-/*   Updated: 2020/05/07 15:20:15 by ocmarout         ###   ########.fr       */
+/*   Updated: 2020/05/07 15:49:10 by ocmarout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 static char	*ft_write_str(int len, unsigned int mod, unsigned int nb,
-		const char *base)
+		char const *base)
 {
 	int		i;
 	int		len_base;
@@ -33,7 +33,7 @@ static char	*ft_write_str(int len, unsigned int mod, unsigned int nb,
 	return (str);
 }
 
-char		*ft_utoa_base(unsigned int n, const char *base)
+char		*ft_utoa_base(unsigned int n, char const *base)
 {
 	int				i;
 	int				len;

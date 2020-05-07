@@ -6,13 +6,13 @@
 /*   By: ocmarout <ocmarout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 15:29:51 by ocmarout          #+#    #+#             */
-/*   Updated: 2020/05/04 14:18:55 by ocmarout         ###   ########.fr       */
+/*   Updated: 2020/05/07 15:43:24 by ocmarout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int			ft_atoi(const char *str)
+int			ft_atoi(char const *str)
 {
 	int		i;
 	int		sign;

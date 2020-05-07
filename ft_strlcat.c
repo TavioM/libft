@@ -6,13 +6,13 @@
 /*   By: ocmarout <ocmarout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/07 19:24:04 by ocmarout          #+#    #+#             */
-/*   Updated: 2020/05/04 11:55:38 by ocmarout         ###   ########.fr       */
+/*   Updated: 2020/05/07 15:49:31 by ocmarout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
+size_t	ft_strlcat(char *dst, char const *src, size_t dstsize)
 {
 	unsigned int	i;
 	unsigned int	j;

@@ -6,13 +6,13 @@
 /*   By: ocmarout <ocmarout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/06 22:00:59 by ocmarout          #+#    #+#             */
-/*   Updated: 2020/05/04 11:53:29 by ocmarout         ###   ########.fr       */
+/*   Updated: 2020/05/07 15:47:31 by ocmarout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 
-int		ft_strncmp(const char *s1, const char *s2, size_t n)
+int		ft_strncmp(char const *s1, char const *s2, size_t n)
 {
 	unsigned int i;
 

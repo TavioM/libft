@@ -6,13 +6,13 @@
 /*   By: ocmarout <ocmarout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/14 13:57:31 by ocmarout          #+#    #+#             */
-/*   Updated: 2020/05/04 11:47:56 by ocmarout         ###   ########.fr       */
+/*   Updated: 2020/05/07 15:38:53 by ocmarout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putendl_fd(char *s, int fd)
+void	ft_putendl_fd(char const *s, int fd)
 {
 	ft_putstr_fd(s, fd);
 	ft_putstr_fd("\n", fd);

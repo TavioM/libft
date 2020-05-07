@@ -6,13 +6,13 @@
 /*   By: ocmarout <ocmarout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/05 16:39:29 by ocmarout          #+#    #+#             */
-/*   Updated: 2020/05/04 11:43:32 by ocmarout         ###   ########.fr       */
+/*   Updated: 2020/05/07 15:39:55 by ocmarout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dest, const char *src, size_t size)
+size_t	ft_strlcpy(char *dest, char const *src, size_t size)
 {
 	unsigned int	i;
 	int				len;

@@ -6,13 +6,13 @@
 /*   By: ocmarout <ocmarout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/07 12:25:23 by ocmarout          #+#    #+#             */
-/*   Updated: 2020/05/04 11:42:50 by ocmarout         ###   ########.fr       */
+/*   Updated: 2020/05/07 15:39:35 by ocmarout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 
-char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
+char	*ft_strnstr(char const *haystack, char const *needle, size_t len)
 {
 	unsigned int i;
 	unsigned int j;

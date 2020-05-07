@@ -6,13 +6,13 @@
 /*   By: ocmarout <ocmarout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/03 13:44:54 by ocmarout          #+#    #+#             */
-/*   Updated: 2020/05/04 11:49:01 by ocmarout         ###   ########.fr       */
+/*   Updated: 2020/05/07 15:45:52 by ocmarout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t		ft_strlen(const char *s)
+size_t		ft_strlen(char const *s)
 {
 	size_t	i;
 

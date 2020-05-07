@@ -6,13 +6,13 @@
 /*   By: ocmarout <ocmarout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 14:01:22 by ocmarout          #+#    #+#             */
-/*   Updated: 2020/05/04 11:51:46 by ocmarout         ###   ########.fr       */
+/*   Updated: 2020/05/07 15:46:26 by ocmarout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+char	*ft_strchr(char const *s, int c)
 {
 	int		i;
 	char	ch;
