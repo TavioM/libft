@@ -6,7 +6,7 @@
 #    By: ocmarout <ocmarout@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/13 02:53:19 by ocmarout          #+#    #+#              #
-#    Updated: 2020/05/07 14:14:33 by ocmarout         ###   ########.fr        #
+#    Updated: 2020/05/11 09:21:38 by ocmarout         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,10 +30,12 @@ SRCS		=	ft_memset.c			\
 				ft_isalnum.c		\
 				ft_isascii.c		\
 				ft_isprint.c		\
+				ft_isspace.c		\
 				ft_toupper.c		\
 				ft_tolower.c		\
 				ft_calloc.c			\
 				ft_strdup.c			\
+				ft_strcpy.c			\
 				ft_substr.c			\
 				ft_strjoin.c		\
 				ft_strtrim.c		\
