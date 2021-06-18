@@ -19,9 +19,15 @@ static char	*ft_write_str(int len, unsigned int mod, unsigned int nb)
 	char	*str;
 
 	i = 0;
-	sign = len < 0 ? -1 : 1;
-	len = len < 0 ? len * -1 : len;
-	if (!(str = malloc(sizeof(char) * len)))
+	if (len < 0)
+	{
+		sign = -1;
+		len *= -1;
+	}
+	else
+		sign = 1;
+	str = malloc(sizeof(char) * len);
+	if (!str)
 		return (0);
 	if (sign == -1)
 		str[i++] = '-';
@@ -35,7 +41,7 @@ static char	*ft_write_str(int len, unsigned int mod, unsigned int nb)
 	return (str);
 }
 
-char		*ft_itoa(int n)
+char	*ft_itoa(int n)
 {
 	int				i;
 	int				len;
@@ -44,13 +50,19 @@ char		*ft_itoa(int n)
 
 	i = 0;
 	mod = 1;
-	len = n < 0 ? 3 : 2;
-	nb = n < 0 ? (unsigned)n * -1 : (unsigned)n;
+	len = 2;
+	if (n < 0)
+		len++;
+	if (n < 0)
+		nb = (unsigned)n * -1;
+	else
+		nb = (unsigned)n;
 	while (mod * 10 <= nb)
 	{
 		len++;
 		mod *= 10;
 	}
-	len = n < 0 ? len * -1 : len;
+	if (n < 0)
+		len *= -1;
 	return (ft_write_str(len, mod, nb));
 }

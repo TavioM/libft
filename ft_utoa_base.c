@@ -21,7 +21,8 @@ static char	*ft_write_str(int len, unsigned int mod, unsigned int nb,
 
 	i = 0;
 	len_base = ft_strlen(base);
-	if (!(str = malloc(sizeof(char) * len)))
+	str = malloc(sizeof(char) * len);
+	if (!str)
 		return (0);
 	while (mod > 0)
 	{
@@ -33,7 +34,7 @@ static char	*ft_write_str(int len, unsigned int mod, unsigned int nb,
 	return (str);
 }
 
-char		*ft_utoa_base(unsigned int n, char const *base)
+char	*ft_utoa_base(unsigned int n, char const *base)
 {
 	int				i;
 	int				len;

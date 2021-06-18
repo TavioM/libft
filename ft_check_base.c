@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-int		ft_check_base(char const *base)
+int	ft_check_base(char const *base)
 {
 	int		i;
 

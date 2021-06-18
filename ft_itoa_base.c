@@ -21,10 +21,15 @@ static char	*ft_write_str(int len, unsigned int mod, unsigned int nb,
 	char	*str;
 
 	i = 0;
-	sign = len < 0 ? -1 : 1;
-	len = len < 0 ? len * -1 : len;
+	sign = 1;
+	if (len < 0)
+	{
+		sign = -1;
+		len *= -1;
+	}
 	len_base = ft_strlen(base);
-	if (!(str = malloc(sizeof(char) * len)))
+	str = malloc(sizeof(char) * len);
+	if (!str)
 		return (0);
 	if (sign == -1)
 		str[i++] = '-';
@@ -38,7 +43,7 @@ static char	*ft_write_str(int len, unsigned int mod, unsigned int nb,
 	return (str);
 }
 
-char		*ft_itoa_base(int n, char const *base)
+char	*ft_itoa_base(int n, char const *base)
 {
 	int				i;
 	int				len;
@@ -51,13 +56,18 @@ char		*ft_itoa_base(int n, char const *base)
 		return (0);
 	i = 0;
 	mod = 1;
-	len = n < 0 ? 3 : 2;
-	nb = n < 0 ? (unsigned)n * -1 : (unsigned)n;
+	len = 2;
+	if (n < 0)
+		len++;
+	nb = (unsigned)n;
+	if (n < 0)
+		nb = (unsigned)n * -1;
 	while (mod * len_base <= nb)
 	{
 		len++;
 		mod *= len_base;
 	}
-	len = n < 0 ? len * -1 : len;
+	if (n < 0)
+		len *= -1;
 	return (ft_write_str(len, mod, nb, base));
 }
