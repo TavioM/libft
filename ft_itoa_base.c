@@ -12,7 +12,18 @@
 
 #include "libft.h"
 
-static char	*ft_write_str(int len, unsigned int mod, unsigned int nb,
+static void	write_str_init(int *i, int *sign, int *len)
+{
+	*i = 0;
+	*sign = 1;
+	if (*len < 0)
+	{
+		*sign = -1;
+		*len = *len * -1;
+	}
+}
+
+static char	*write_str(int len, unsigned int mod, unsigned int nb,
 		char const *base)
 {
 	int		i;
@@ -20,13 +31,7 @@ static char	*ft_write_str(int len, unsigned int mod, unsigned int nb,
 	int		len_base;
 	char	*str;
 
-	i = 0;
-	sign = 1;
-	if (len < 0)
-	{
-		sign = -1;
-		len *= -1;
-	}
+	write_str_init(&i, &sign, &len);
 	len_base = ft_strlen(base);
 	str = malloc(sizeof(char) * len);
 	if (!str)
@@ -69,5 +74,5 @@ char	*ft_itoa_base(int n, char const *base)
 	}
 	if (n < 0)
 		len *= -1;
-	return (ft_write_str(len, mod, nb, base));
+	return (write_str(len, mod, nb, base));
 }

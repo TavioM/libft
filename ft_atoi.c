@@ -23,18 +23,17 @@ int	ft_atoi(char const *str)
 	nb = 0;
 	while (str[i] && ft_isspace(str[i]))
 		i++;
-	if (str[i] == '+' || str[i] == '-')
-	{
-		if (str[i] == '-')
-			sign = -1;
+	if (str[i] == '+')
 		i++;
-	}
+	else if (str[i] == '-')
+		sign = (0 * i++) - 1;
 	while (str[i] && str[i] >= '0' && str[i] <= '9')
 	{
-		nb *= 10;
-		nb += str[i] - '0';
-		if (nb < 0)
-			return (sign == 1 ? -1 : 0);
+		nb = (nb * 10) + str[i] - '0';
+		if (nb < 0 && sign == 1)
+			return (-1);
+		else if (nb < 0 && sign != 1)
+			return (0);
 		i++;
 	}
 	return ((int)nb * sign);
