@@ -6,7 +6,7 @@
 #    By: ocmarout <ocmarout@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/13 02:53:19 by ocmarout          #+#    #+#              #
-#    Updated: 2021/08/11 19:21:01 by ocmarout         ###   ########.fr        #
+#    Updated: 2021/08/17 13:32:46 by ocmarout         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,14 @@ SRCS		=	ft_memset.c			\
 				ft_check_base.c		\
 				ft_putstr_fd.c		\
 				ft_putendl_fd.c		\
-				ft_putnbr_fd.c
+				ft_putnbr_fd.c		\
+				$(addprefix Printf/, ft_printf.c)	\
+				$(addprefix Printf/, parsing.c)	\
+				$(addprefix Printf/, conversion_c.c)	\
+				$(addprefix Printf/, conversion_d.c)	\
+				$(addprefix Printf/, conversion_xX.c)	\
+				$(addprefix Printf/, $(addprefix ${OS}, _conversion_s.c))	\
+				$(addprefix Printf/, $(addprefix ${OS}, _conversion_p.c))	\
 
 OBJS		=	${SRCS:.c=.o}
 
@@ -56,6 +63,14 @@ RANLIB		=	ranlib
 MKDIR		=	mkdir -p
 RM			=	rm -f
 
+OS			=	mac
+
+UNAME	:=	$(shell uname)
+
+ifeq	($(UNAME), Linux)
+OS		=	linux
+endif
+
 all		:	${NAME}
 
 ${NAME}	:	$(addprefix ${OBJS_DIR}, ${OBJS})
@@ -64,6 +79,7 @@ ${NAME}	:	$(addprefix ${OBJS_DIR}, ${OBJS})
 
 ${OBJS_DIR}:
 			${MKDIR} ${OBJS_DIR}
+			${MKDIR} $(addprefix ${OBJS_DIR}, Printf)
 
 ${OBJS_DIR}%.o : ${SRCS_DIR}%.c | ${OBJS_DIR}
 			${CC} ${CFLAGS} -c $< -o $@
