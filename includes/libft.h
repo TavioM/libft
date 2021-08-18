@@ -6,7 +6,7 @@
 /*   By: ocmarout <ocmarout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 15:10:47 by ocmarout          #+#    #+#             */
-/*   Updated: 2021/08/17 13:07:22 by ocmarout         ###   ########.fr       */
+/*   Updated: 2021/08/18 15:44:17 by ocmarout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,13 @@ typedef struct s_list
 	void			*content;
 	struct s_list	*next;
 }				t_list;
+
+typedef struct s_2list
+{
+	void			*data;
+	struct s_2list	*prev;
+	struct s_2list	*next;
+}				t_2list;
 
 size_t			ft_strlen(char const *s);
 size_t			ft_strlcpy(char *dest, char const *src, size_t size);
@@ -43,6 +50,7 @@ int				ft_memcmp(void const *s1, void const *s2, size_t n);
 void			ft_putstr_fd(char const *s, int fd);
 void			ft_putendl_fd(char const *s, int fd);
 void			ft_putnbr_fd(int n, int fd);
+void			trim_spaces(char *s);
 void			ft_bzero(void *s, size_t n);
 void			*ft_calloc(size_t count, size_t size);
 void			*ft_memset(void *b, int c, size_t len);
@@ -74,5 +82,14 @@ void			ft_lstdelone(t_list *lst, void (*del)(void*));
 void			ft_lstclear(t_list **lst, void (*del)(void*));
 void			ft_lstiter(t_list *lst, void (*f)(void *));
 t_list			*ft_lstmap(t_list *l, void *(*f)(void *), void (*del)(void *));
+t_2list			*ft_2lstnew(void *content);
+void			ft_2lstadd_front(t_2list **alst, t_2list *new);
+int				ft_2lstsize(t_2list *lst);
+t_2list			*ft_2lstlast(t_2list *lst);
+void			ft_2lstadd_back(t_2list **alst, t_2list *new);
+void			ft_2lstdelone(t_2list *lst, void (*del)(void*));
+void			ft_2lstclear(t_2list **lst, void (*del)(void*));
+void			ft_2lstiter(t_2list *lst, void (*f)(void *));
+t_2list			*ft_2lstmap(t_2list *l, void *(*f)(void *), void (*d)(void *));
 
 #endif
