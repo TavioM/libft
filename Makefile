@@ -6,7 +6,7 @@
 #    By: ocmarout <ocmarout@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/13 02:53:19 by ocmarout          #+#    #+#              #
-#    Updated: 2021/08/19 11:47:04 by ocmarout         ###   ########.fr        #
+#    Updated: 2021/08/19 16:28:22 by ocmarout         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,10 +50,16 @@ SRCS		=	ft_memset.c			\
 				$(addprefix Printf/, conversion_xX.c)	\
 				$(addprefix Printf/, $(addprefix ${OS}, _conversion_s.c))	\
 				$(addprefix Printf/, $(addprefix ${OS}, _conversion_p.c))	\
-				$(addprefix lists/, ft_2lstnew.c)	\
-				$(addprefix lists/, ft_2lstlast.c)	\
 				$(addprefix lists/, ft_2lstadd_back.c)	\
 				$(addprefix lists/, ft_2lstadd_front.c)	\
+				$(addprefix lists/, ft_2lstclear.c)		\
+				$(addprefix lists/, ft_2lstdelone.c)	\
+				$(addprefix lists/, ft_2lstiter.c)	\
+				$(addprefix lists/, ft_2lstlast.c)	\
+				$(addprefix lists/, ft_2lstmap.c)	\
+				$(addprefix lists/, ft_2lstnew.c)	\
+				$(addprefix lists/, ft_2lstsize.c)
+
 
 OBJS		=	${SRCS:.c=.o}
 
