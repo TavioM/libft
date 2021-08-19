@@ -6,7 +6,7 @@
 #    By: ocmarout <ocmarout@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/13 02:53:19 by ocmarout          #+#    #+#              #
-#    Updated: 2021/08/18 16:01:33 by ocmarout         ###   ########.fr        #
+#    Updated: 2021/08/19 11:47:04 by ocmarout         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ SRCS		=	ft_memset.c			\
 				ft_strlcpy.c		\
 				ft_strlcat.c		\
 				ft_strchr.c			\
+				ft_strcmp.c			\
 				ft_strncmp.c		\
 				ft_atoi.c			\
 				ft_isspace.c		\
@@ -29,6 +30,7 @@ SRCS		=	ft_memset.c			\
 				ft_calloc.c			\
 				ft_strdup.c			\
 				ft_substr.c			\
+				ft_split.c			\
 				ft_strjoin.c		\
 				ft_strtrim.c		\
 				ft_itoa.c			\
@@ -48,9 +50,10 @@ SRCS		=	ft_memset.c			\
 				$(addprefix Printf/, conversion_xX.c)	\
 				$(addprefix Printf/, $(addprefix ${OS}, _conversion_s.c))	\
 				$(addprefix Printf/, $(addprefix ${OS}, _conversion_p.c))	\
-				$(addprefix lists/, ft_2lstnew.c )	\
-				$(addprefix lists/, ft_2lstadd_back.c )	\
-				$(addprefix lists/, ft_2lstadd_front.c )	\
+				$(addprefix lists/, ft_2lstnew.c)	\
+				$(addprefix lists/, ft_2lstlast.c)	\
+				$(addprefix lists/, ft_2lstadd_back.c)	\
+				$(addprefix lists/, ft_2lstadd_front.c)	\
 
 OBJS		=	${SRCS:.c=.o}
 
