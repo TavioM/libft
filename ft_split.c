@@ -6,7 +6,7 @@
 /*   By: ocmarout <ocmarout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/19 11:34:23 by ocmarout          #+#    #+#             */
-/*   Updated: 2021/08/19 11:46:25 by ocmarout         ###   ########.fr       */
+/*   Updated: 2021/08/19 12:32:37 by ocmarout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ static int	ft_fill_tab(char const *s, char c, char **tab, int n)
 		tab[i++][j] = 0;
 	}
 	tab[i] = 0;
+	return (0);
 }
 
 char	**ft_split(char const *s, char c)
