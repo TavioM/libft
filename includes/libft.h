@@ -6,7 +6,7 @@
 /*   By: ocmarout <ocmarout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 15:10:47 by ocmarout          #+#    #+#             */
-/*   Updated: 2021/08/18 19:33:36 by ocmarout         ###   ########.fr       */
+/*   Updated: 2021/08/19 17:39:59 by ocmarout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ void			ft_2lstadd_front(t_2list **alst, t_2list *new);
 int				ft_2lstsize(t_2list *lst);
 t_2list			*ft_2lstlast(t_2list *lst);
 void			ft_2lstadd_back(t_2list **alst, t_2list *new);
-void			ft_2lstdelone(t_2list *lst, void (*del)(void*));
+void			ft_2lstdelone(t_2list *lst);
 void			ft_2lstclear(t_2list **lst, void (*del)(void*));
 void			ft_2lstiter(t_2list *lst, void (*f)(void *));
 t_2list			*ft_2lstmap(t_2list *l, void *(*f)(void *), void (*d)(void *));

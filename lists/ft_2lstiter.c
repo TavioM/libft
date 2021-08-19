@@ -6,7 +6,7 @@
 /*   By: ocmarout <ocmarout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/19 16:29:36 by ocmarout          #+#    #+#             */
-/*   Updated: 2021/08/19 16:35:41 by ocmarout         ###   ########.fr       */
+/*   Updated: 2021/08/19 17:40:37 by ocmarout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_2lstiter(t_2list *lst, void (*f)(void *))
 		return ;
 	while (lst)
 	{
-		f(lst->content);
+		f(lst->data);
 		lst = lst->next;
 	}
 }
