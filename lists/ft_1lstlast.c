@@ -1,23 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_2lstdelone.c                                    :+:      :+:    :+:   */
+/*   ft_1lstlast.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ocmarout <ocmarout@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ocmarout <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/19 16:13:39 by ocmarout          #+#    #+#             */
-/*   Updated: 2021/08/19 17:40:12 by ocmarout         ###   ########.fr       */
+/*   Created: 2019/10/29 18:05:59 by ocmarout          #+#    #+#             */
+/*   Updated: 2021/08/26 11:53:49 by ocmarout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_2lstdelone(t_2list *lst)
+t_1list	*ft_1lstlast(t_1list *lst)
 {
-	if (lst->prev)
-		lst->prev->next = lst->next;
-	if (lst->next)
-		lst->next->prev = lst->prev;
-	free(lst->data);
-	free(lst);
+	if (!lst)
+		return (0);
+	while (lst->next)
+		lst = lst->next;
+	return (lst);
 }

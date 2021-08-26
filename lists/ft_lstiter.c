@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ocmarout <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ocmarout <ocmarout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/30 12:18:18 by ocmarout          #+#    #+#             */
-/*   Updated: 2019/10/30 17:12:16 by ocmarout         ###   ########.fr       */
+/*   Created: 2021/08/19 16:29:36 by ocmarout          #+#    #+#             */
+/*   Updated: 2021/08/26 12:15:15 by ocmarout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_lstiter(t_list *lst, void (*f)(void *))
 		return ;
 	while (lst)
 	{
-		f(lst->content);
+		f(lst->data);
 		lst = lst->next;
 	}
 }

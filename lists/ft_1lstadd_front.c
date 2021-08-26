@@ -1,24 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_2lstiter.c                                      :+:      :+:    :+:   */
+/*   ft_1lstadd_front.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ocmarout <ocmarout@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ocmarout <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/19 16:29:36 by ocmarout          #+#    #+#             */
-/*   Updated: 2021/08/19 17:40:37 by ocmarout         ###   ########.fr       */
+/*   Created: 2019/10/28 13:32:49 by ocmarout          #+#    #+#             */
+/*   Updated: 2021/08/26 11:52:54 by ocmarout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_2lstiter(t_2list *lst, void (*f)(void *))
+void	ft_1lstadd_front(t_1list **alst, t_1list *new)
 {
-	if (!lst || !f)
-		return ;
-	while (lst)
-	{
-		f(lst->data);
-		lst = lst->next;
-	}
+	new->next = *alst;
+	*alst = new;
 }

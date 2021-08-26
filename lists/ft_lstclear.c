@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ocmarout <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ocmarout <ocmarout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/30 12:17:34 by ocmarout          #+#    #+#             */
-/*   Updated: 2021/08/19 17:38:22 by ocmarout         ###   ########.fr       */
+/*   Created: 2021/08/19 16:29:24 by ocmarout          #+#    #+#             */
+/*   Updated: 2021/08/26 12:14:50 by ocmarout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	ft_lstclear(t_list **lst, void (*del)(void*))
 	list = *lst;
 	while (list)
 	{
-		del(list->content);
+		del(list->data);
 		tmp = list->next;
 		free(list);
 		list = tmp;

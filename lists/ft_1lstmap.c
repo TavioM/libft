@@ -1,37 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_2lstmap.c                                       :+:      :+:    :+:   */
+/*   ft_1lstmap.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ocmarout <ocmarout@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ocmarout <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/19 16:29:42 by ocmarout          #+#    #+#             */
-/*   Updated: 2021/08/19 17:41:37 by ocmarout         ###   ########.fr       */
+/*   Created: 2019/10/30 12:20:04 by ocmarout          #+#    #+#             */
+/*   Updated: 2021/08/26 11:54:27 by ocmarout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_2list	*ft_2lstmap(t_2list *lst, void *(*f)(void *), void (*del)(void *))
+t_1list	*ft_1lstmap(t_1list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_2list	*start;
-	t_2list	*list;
+	t_1list	*start;
+	t_1list	*list;
 
 	if (!lst || !f)
 		return (0);
-	start = ft_2lstnew(f(lst->data));
+	start = ft_1lstnew(f(lst->content));
 	if (!start)
 		return (0);
 	lst = lst->next;
 	while (lst)
 	{
-		list = ft_2lstnew(f(lst->data));
+		list = ft_1lstnew(f(lst->content));
 		if (!list)
 		{
-			ft_2lstclear(&start, del);
+			ft_1lstclear(&start, del);
 			return (0);
 		}
-		ft_2lstadd_back(&start, list);
+		ft_1lstadd_back(&start, list);
 		lst = lst->next;
 	}
 	return (start);

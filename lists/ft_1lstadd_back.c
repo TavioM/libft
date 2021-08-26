@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_2lstadd_front.c                                 :+:      :+:    :+:   */
+/*   ft_1lstadd_back.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ocmarout <ocmarout@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ocmarout <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/18 13:25:12 by ocmarout          #+#    #+#             */
-/*   Updated: 2021/08/18 16:57:57 by ocmarout         ###   ########.fr       */
+/*   Created: 2019/10/29 18:50:10 by ocmarout          #+#    #+#             */
+/*   Updated: 2021/08/26 11:52:39 by ocmarout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_2lstadd_front(t_2list **alst, t_2list *new)
+void	ft_1lstadd_back(t_1list **alst, t_1list *new)
 {
-	ft_printf("1\n");
-	new->next = *alst;
-	ft_printf("2\n");
+	if (!alst)
+		return ;
 	if (*alst)
-		(*alst)->prev = new;
-	ft_printf("3\n");
-	*alst = new;
-	ft_printf("4\n");
+		ft_1lstlast(*alst)->next = new;
+	else
+		*alst = new;
 }

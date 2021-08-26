@@ -1,22 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_2lstlast.c                                      :+:      :+:    :+:   */
+/*   ft_1iter.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ocmarout <ocmarout@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ocmarout <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/18 17:11:24 by ocmarout          #+#    #+#             */
-/*   Updated: 2021/08/18 17:14:10 by ocmarout         ###   ########.fr       */
+/*   Created: 2019/10/30 12:18:18 by ocmarout          #+#    #+#             */
+/*   Updated: 2021/08/26 11:48:42 by ocmarout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_2list	*ft_2lstlast(t_2list *lst)
+void	ft_1lstiter(t_1list *lst, void (*f)(void *))
 {
-	if (!lst)
-		return (0);
-	while (lst->next)
+	if (!lst || !f)
+		return ;
+	while (lst)
+	{
+		f(lst->content);
 		lst = lst->next;
-	return (lst);
+	}
 }

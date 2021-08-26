@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_2lstsize.c                                      :+:      :+:    :+:   */
+/*   ft_1lstdelone.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ocmarout <ocmarout@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ocmarout <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/19 16:21:59 by ocmarout          #+#    #+#             */
-/*   Updated: 2021/08/19 16:22:16 by ocmarout         ###   ########.fr       */
+/*   Created: 2019/10/30 12:16:22 by ocmarout          #+#    #+#             */
+/*   Updated: 2021/08/26 11:53:35 by ocmarout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_2lstsize(t_2list *lst)
+void	ft_1lstdelone(t_1list *lst, void (*del)(void*))
 {
-	int	i;
-
-	i = 0;
-	while (lst)
+	if (lst && del)
 	{
-		i++;
-		lst = lst->next;
+		del(lst->content);
+		free(lst);
+		lst = 0;
 	}
-	return (i);
 }

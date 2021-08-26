@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_2lstadd_back.c                                  :+:      :+:    :+:   */
+/*   ft_1lstsize.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ocmarout <ocmarout@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ocmarout <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/18 13:16:15 by ocmarout          #+#    #+#             */
-/*   Updated: 2021/08/18 16:02:49 by ocmarout         ###   ########.fr       */
+/*   Created: 2019/10/29 17:52:53 by ocmarout          #+#    #+#             */
+/*   Updated: 2021/08/26 11:55:05 by ocmarout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_2lstadd_back(t_2list **alst, t_2list *new)
+int	ft_1lstsize(t_1list *lst)
 {
-	if (!alst)
-		return ;
-	if (*alst)
+	int	i;
+
+	i = 0;
+	while (lst)
 	{
-		new->prev = ft_2lstlast(*alst);
-		ft_2lstlast(*alst)->next = new;
+		i++;
+		lst = lst->next;
 	}
-	else
-		*alst = new;
+	return (i);
 }
