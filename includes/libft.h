@@ -6,7 +6,7 @@
 /*   By: ocmarout <ocmarout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 15:10:47 by ocmarout          #+#    #+#             */
-/*   Updated: 2021/08/26 12:28:47 by ocmarout         ###   ########.fr       */
+/*   Updated: 2021/09/02 15:48:28 by ocmarout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stddef.h>
-# include <limits.h>
+# include <stdint.h>
 # include "ft_printf.h"
 
 typedef struct s_1list
