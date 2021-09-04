@@ -6,7 +6,7 @@
 /*   By: ocmarout <ocmarout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 15:10:47 by ocmarout          #+#    #+#             */
-/*   Updated: 2021/09/02 15:48:28 by ocmarout         ###   ########.fr       */
+/*   Updated: 2021/09/04 18:40:45 by ocmarout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,6 @@
 # include <stddef.h>
 # include <stdint.h>
 # include "ft_printf.h"
-
-typedef struct s_1list
-{
-	void			*content;
-	struct s_1list	*next;
-}				t_1list;
 
 typedef struct s_list
 {
@@ -74,15 +68,6 @@ char			*ft_strjoin(char const *s1, char const *s2);
 char			*ft_strtrim(char const *s1, char const *set);
 char			*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char			**ft_split(char const *s, char c);
-t_1list			*ft_1lstnew(void *content);
-void			ft_1lstadd_front(t_1list **alst, t_1list *new);
-int				ft_1lstsize(t_1list *lst);
-t_list			*ft_1lstlast(t_1list *lst);
-void			ft_1lstadd_back(t_1list **alst, t_1list *new);
-void			ft_1lstdelone(t_1list *lst, void (*del)(void*));
-void			ft_1lstclear(t_1list **lst, void (*del)(void*));
-void			ft_1lstiter(t_1list *lst, void (*f)(void *));
-t_1list			*ft_1lstmap(t_1list *l, void *(*f)(void *), void (*d)(void *));
 t_list			*ft_lstnew(void *content);
 void			ft_lstadd_front(t_list **alst, t_list *new);
 int				ft_lstsize(t_list *lst);
