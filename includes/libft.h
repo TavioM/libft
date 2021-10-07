@@ -6,7 +6,7 @@
 /*   By: ocmarout <ocmarout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 15:10:47 by ocmarout          #+#    #+#             */
-/*   Updated: 2021/09/04 18:40:45 by ocmarout         ###   ########.fr       */
+/*   Updated: 2021/10/07 18:49:33 by ocmarout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,28 @@
 # include <stdint.h>
 # include "ft_printf.h"
 
+#define BUFFSIZE 10
+
 typedef struct s_list
 {
 	void			*data;
 	struct s_list	*prev;
 	struct s_list	*next;
 }				t_list;
+
+typedef struct s_fd
+{
+	int				fd;
+	struct s_list	*list;
+}					t_fd;
+
+typedef struct s_buff
+{
+	int				i;
+	int				end;
+	char			*str;
+	struct s_list	*list;
+}					t_buff;
 
 size_t			ft_strlen(char const *s);
 size_t			ft_strlcpy(char *dest, char const *src, size_t size);
@@ -42,6 +58,7 @@ int				ft_strcmp(char const *s1, char const *s2);
 int				ft_strncmp(char const *s1, char const *s2, size_t n);
 int				ft_atoi(char const *str);
 int				ft_memcmp(void const *s1, void const *s2, size_t n);
+int				get_next_line(int fd, char **line);
 void			ft_putstr_fd(char const *s, int fd);
 void			ft_putendl_fd(char const *s, int fd);
 void			ft_putnbr_fd(int n, int fd);

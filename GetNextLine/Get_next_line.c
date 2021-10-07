@@ -6,7 +6,7 @@
 /*   By: ocmarout <ocmarout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/01 12:37:26 by ocmarout          #+#    #+#             */
-/*   Updated: 2021/10/07 17:49:09 by ocmarout         ###   ########.fr       */
+/*   Updated: 2021/10/07 19:15:28 by ocmarout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static t_list	*new_list(int fd)
 	if (!new_list)
 		free(new_fd);
 	((t_fd *)new_list->data)->fd = fd;
-	((t_fd *)new_list->data)->buff = 0;
+	((t_fd *)new_list->data)->list = 0;
 	return (new_list);
 }
 
@@ -57,14 +57,18 @@ void	read_line(t_list *list)
 	t_list	*buff;
 
 	fd = ((t_fd *)list->data)->fd;
-	buff = ((t_fd *)list->data)->buff;
+	buff = ((t_fd *)list->data)->list;
+	ft_printf("still here\n");
 	while (1)
 	{
-		if (!(((t_fd *)list->data)->buff))
+		if (!(((t_fd *)list->data)->list))
 		{
-			((t_fd *)list->data)->buff = malloc(sizeof(char) * BUFFSIZE);
-			((t_buff *)(buff->data))->end =
-				read(fd, &((t_buff *)(buff->data))->str, 0);
+			ft_printf("1\n");
+			((t_fd *)list->data)->list = malloc(sizeof(t_list));
+			((t_buff *)buff->data)->str = malloc(sizeof(char) * )
+			((t_buff *)buff->data)->end =
+				read(fd, &(((t_buff *)(buff->data))->str), BUFFSIZE);
+			ft_printf("3\n");
 		}
 		return ;
 	}
@@ -78,6 +82,7 @@ int	get_next_line(int fd, char **line)
 	if (fd < 0 || !line || read(fd, 0, 0) == -1)
 		return (-1);
 	tmp = find_fd(&list_fd, fd);
+	ft_printf("still here\n");
 	if (!tmp)
 		return (-1);
 	read_line(tmp);
