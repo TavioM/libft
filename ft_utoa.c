@@ -6,7 +6,7 @@
 /*   By: ocmarout <ocmarout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/14 14:27:10 by ocmarout          #+#    #+#             */
-/*   Updated: 2020/05/07 11:58:02 by ocmarout         ###   ########.fr       */
+/*   Updated: 2021/10/07 17:12:28 by ocmarout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,9 @@ static char	*ft_write_str(int len, unsigned int mod, unsigned int nb)
 
 char	*ft_utoa(unsigned int n)
 {
-	int				i;
 	int				len;
 	long			mod;
 
-	i = 0;
 	mod = 1;
 	len = 2;
 	while (mod * 10 <= n)
