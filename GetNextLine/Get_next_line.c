@@ -6,13 +6,13 @@
 /*   By: ocmarout <ocmarout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/01 12:37:26 by ocmarout          #+#    #+#             */
-/*   Updated: 2021/10/07 19:15:28 by ocmarout         ###   ########.fr       */
+/*   Updated: 2021/10/08 19:28:00 by ocmarout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static t_list	*new_list(int fd)
+static t_list	*new_list_fd(int fd)
 {
 	t_list	*new_list;
 	t_fd	*new_fd;
@@ -28,13 +28,38 @@ static t_list	*new_list(int fd)
 	return (new_list);
 }
 
+static t_list	*new_buff(int fd)
+{
+	t_list	*new_list;
+	t_fd	*new_buff;
+
+	new_buff = malloc(sizeof(t_buff));
+	if (!new_buff)
+		return (0);
+	new_list = ft_lstnew(new_buff);
+	if (!new_list)
+		free(new_buff);
+	((t_buff *)new_list->data)->i = 0;
+	((t_buff *)new_list->data)->end = 0;
+	((t_buff *)new_list->data)->str = malloc(sizeof(char) * BUFFSIZE);
+	if (!(((t_buff *)new_list->data)->str))
+	{
+		free(new_list);
+		free(new_buff);
+		return (0);
+	}
+	((t_buff *)new_list->data)->end
+		= read(fd, ((t_buff *)new_list->data)->str, BUFFSIZE);
+	return (new_list);
+}
+
 static t_list	*find_fd(t_list **list, int fd)
 {
 	t_list	*tmp;
 
 	if (!(*list))
 	{
-		*list = new_list(fd);
+		*list = new_list_fd(fd);
 		return (*list);
 	}
 	tmp = *list;
@@ -44,35 +69,49 @@ static t_list	*find_fd(t_list **list, int fd)
 			return (tmp);
 		tmp = tmp->next;
 	}
-	tmp = new_list(fd);
+	tmp = new_list_fd(fd);
 	if (!tmp)
 		return (0);
 	ft_lstadd_back(list, tmp);
 	return (ft_lstlast(*list));
 }
 
-void	read_line(t_list *list)
+static int	read_line(t_list *list)
 {
+	int		i;
 	int		fd;
-	t_list	*buff;
+	int		size;
+	t_list	**buff;
 
+	size = 0;
 	fd = ((t_fd *)list->data)->fd;
-	buff = ((t_fd *)list->data)->list;
-	ft_printf("still here\n");
+	buff = &(((t_fd *)list->data)->list);
+	if (!(*buff))
+	{
+		*buff = new_buff(fd);
+		if (!(buff))
+			return (-1);
+	}
 	while (1)
 	{
-		if (!(((t_fd *)list->data)->list))
+		i = ((t_buff *)(*buff)->data)->i;
+		while (i < ((t_buff *)(*buff)->data)->end)
 		{
-			ft_printf("1\n");
-			((t_fd *)list->data)->list = malloc(sizeof(t_list));
-			((t_buff *)buff->data)->str = malloc(sizeof(char) * )
-			((t_buff *)buff->data)->end =
-				read(fd, &(((t_buff *)(buff->data))->str), BUFFSIZE);
-			ft_printf("3\n");
+			if ((((t_buff *)(*buff)->data)->str)[i] == '\n')
+				return (size + 1);
+			i++;
+			size++;
 		}
-		return ;
+		if (((t_buff *)(*buff)->data)->end < BUFFSIZE)
+			return (size + 1);
+		(*buff)->next = new_buff(fd);
+		if (!(*buff)->next)
+			return (-1);
+		*buff = (*buff)->next;
 	}
 }
+
+/*	((t_buff)((t_fd)list->data)->list->data)->str;	*/
 
 int	get_next_line(int fd, char **line)
 {
@@ -86,6 +125,5 @@ int	get_next_line(int fd, char **line)
 	if (!tmp)
 		return (-1);
 	read_line(tmp);
-//	ft_printf("fd :%d\n", fd);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: ocmarout <ocmarout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 15:10:47 by ocmarout          #+#    #+#             */
-/*   Updated: 2021/10/07 18:49:33 by ocmarout         ###   ########.fr       */
+/*   Updated: 2021/10/08 17:20:15 by ocmarout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <stdint.h>
 # include "ft_printf.h"
 
-#define BUFFSIZE 10
+# define BUFFSIZE 10
 
 typedef struct s_list
 {
@@ -39,7 +39,6 @@ typedef struct s_buff
 	int				i;
 	int				end;
 	char			*str;
-	struct s_list	*list;
 }					t_buff;
 
 size_t			ft_strlen(char const *s);
