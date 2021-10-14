@@ -6,7 +6,7 @@
 #    By: ocmarout <ocmarout@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/13 02:53:19 by ocmarout          #+#    #+#              #
-#    Updated: 2021/08/26 12:41:58 by ocmarout         ###   ########.fr        #
+#    Updated: 2021/10/14 16:19:55 by ocmarout         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,6 @@ SRCS		=	ft_memset.c			\
 				ft_memcpy.c			\
 				ft_memccpy.c		\
 				ft_memmove.c		\
-				ft_memchr.c			\
 				ft_memcmp.c			\
 				ft_strlen.c			\
 				ft_strcpy.c			\
@@ -43,6 +42,8 @@ SRCS		=	ft_memset.c			\
 				ft_putendl_fd.c		\
 				ft_putnbr_fd.c		\
 				trim_spaces.c		\
+				$(addprefix GetNextLine/, GNL.c)	\
+				$(addprefix GetNextLine/, GNL_utils.c)	\
 				$(addprefix Printf/, ft_printf.c)	\
 				$(addprefix Printf/, parsing.c)	\
 				$(addprefix Printf/, conversion_c.c)	\
@@ -92,6 +93,7 @@ ${NAME}	:	$(addprefix ${OBJS_DIR}, ${OBJS})
 
 ${OBJS_DIR}:
 			${MKDIR} ${OBJS_DIR}
+			${MKDIR} $(addprefix ${OBJS_DIR}, GetNextLine)
 			${MKDIR} $(addprefix ${OBJS_DIR}, Printf)
 			${MKDIR} $(addprefix ${OBJS_DIR}, lists)
 
