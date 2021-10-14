@@ -6,7 +6,7 @@
 /*   By: ocmarout <ocmarout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 16:35:03 by ocmarout          #+#    #+#             */
-/*   Updated: 2021/10/14 16:39:10 by ocmarout         ###   ########.fr       */
+/*   Updated: 2021/10/14 19:18:08 by ocmarout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ typedef struct s_buff
 	char			*str;
 }					t_buff;
 
+int		get_next_line(int fd, char **line);
 void	free_buff(t_buff *buff);
 void	free_fd(t_fd *fd);
 t_list	*new_list_fd(int fd);

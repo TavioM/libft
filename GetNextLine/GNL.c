@@ -6,7 +6,7 @@
 /*   By: ocmarout <ocmarout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/01 12:37:26 by ocmarout          #+#    #+#             */
-/*   Updated: 2021/10/14 16:48:12 by ocmarout         ###   ########.fr       */
+/*   Updated: 2021/10/14 20:17:02 by ocmarout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ static int	read_line(t_list *list)
 	int		i;
 	int		fd;
 	int		size;
+	t_list	*tmp;
 	t_list	**buff;
 
 	size = 0;
@@ -57,9 +58,10 @@ static int	read_line(t_list *list)
 		}
 		if (((t_buff *)(*buff)->data)->end < BUFFSIZE)
 			return (size + 1);
-		(*buff)->next = new_buff(fd);
-		if (!(*buff)->next)
+		tmp = new_buff(fd);
+		if (!tmp)
 			return (-1);
+		ft_lstadd_back(buff, tmp);
 		*buff = (*buff)->next;
 	}
 }
@@ -78,18 +80,20 @@ static int	copy_line(int size, t_list *list, char **line)
 	i = 0;
 	while (((t_fd *)list->data)->list && i < size)
 	{
+		ft_printf("while 1\n");
 		while (((t_fd *)list->data)->list && ((t_buff *)((t_fd *)list->data)->list->data)->i < ((t_buff *)((t_fd *)list->data)->list->data)->end && i < size)
 		{
-			ft_printf("while 1\n");
-			*line[i++] = (((t_buff *)((t_fd *)list->data)->list->data)->str)[((t_buff *)((t_fd *)list->data)->list->data)->i];
+			ft_printf("while 2, i = %d, list->i = %d\n", i, ((t_buff *)((t_fd *)list->data)->list->data)->i);
+			(*line)[i++] = (((t_buff *)((t_fd *)list->data)->list->data)->str)[(((t_buff *)((t_fd *)list->data)->list->data)->i)++];
 		}
-		if (((t_buff *)((t_fd *)list->data)->list->data)->i
-				== ((t_buff *)((t_fd *)list->data)->list->data)->end)
+		if (((t_buff *)((t_fd *)list->data)->list->data)->i == ((t_buff *)((t_fd *)list->data)->list->data)->end)
 		{
+			ft_printf("if 1, list->i = %d, list->end = %d\n", ((t_buff *)((t_fd *)list->data)->list->data)->i, ((t_buff *)((t_fd *)list->data)->list->data)->end);
 			tmp = ((t_fd *)list->data)->list->next;
-			ft_lstdelone(((t_fd *)list->data)->list, (void (*)(void *))&free_buff);
+			ft_lstdelone(((t_fd *)list->data)->list, (void (*)(void *)) & free_buff);
 			((t_fd *)list->data)->list = tmp;
 		}
+		ft_printf("while end : list = %p, i = %d, size = %d\n", ((t_fd *)list->data)->list, i, size);
 	}
 	if (!(((t_fd *)list->data)->list))
 		ft_lstdelone(list, (void (*)(void *))&free_fd);
