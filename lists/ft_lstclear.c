@@ -6,7 +6,7 @@
 /*   By: ocmarout <ocmarout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/19 16:29:24 by ocmarout          #+#    #+#             */
-/*   Updated: 2021/08/26 12:14:50 by ocmarout         ###   ########.fr       */
+/*   Updated: 2021/10/14 16:09:57 by ocmarout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,14 @@ void	ft_lstclear(t_list **lst, void (*del)(void*))
 
 	if (!lst || !(*lst) || !del)
 		return ;
+	list = (*lst)->prev;
+	while (list)
+	{
+		del(list->data);
+		tmp = list->prev;
+		free(list);
+		list = tmp;
+	}
 	list = *lst;
 	while (list)
 	{
