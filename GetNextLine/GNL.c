@@ -6,7 +6,7 @@
 /*   By: ocmarout <ocmarout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/01 12:37:26 by ocmarout          #+#    #+#             */
-/*   Updated: 2021/10/14 20:17:02 by ocmarout         ###   ########.fr       */
+/*   Updated: 2021/10/15 14:06:21 by ocmarout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,28 +41,28 @@ static int	read_line(t_list *list)
 	int		fd;
 	int		size;
 	t_list	*tmp;
-	t_list	**buff;
+	t_list	*buff;
 
 	size = 0;
 	fd = ((t_fd *)list->data)->fd;
-	buff = &(((t_fd *)list->data)->list);
+	buff = ((t_fd *)list->data)->list;
 	while (1)
 	{
-		i = ((t_buff *)(*buff)->data)->i;
-		while (i < ((t_buff *)(*buff)->data)->end)
+		i = ((t_buff *)buff->data)->i;
+		while (i < ((t_buff *)buff->data)->end)
 		{
-			if ((((t_buff *)(*buff)->data)->str)[i] == '\n')
+			if ((((t_buff *)buff->data)->str)[i] == '\n')
 				return (size + 1);
 			i++;
 			size++;
 		}
-		if (((t_buff *)(*buff)->data)->end < BUFFSIZE)
+		if (((t_buff *)buff->data)->end < BUFFSIZE)
 			return (size + 1);
 		tmp = new_buff(fd);
 		if (!tmp)
 			return (-1);
-		ft_lstadd_back(buff, tmp);
-		*buff = (*buff)->next;
+		ft_lstadd_back(&(((t_fd *)list->data)->list), tmp);
+		buff = buff->next;
 	}
 }
 
@@ -80,20 +80,16 @@ static int	copy_line(int size, t_list *list, char **line)
 	i = 0;
 	while (((t_fd *)list->data)->list && i < size)
 	{
-		ft_printf("while 1\n");
 		while (((t_fd *)list->data)->list && ((t_buff *)((t_fd *)list->data)->list->data)->i < ((t_buff *)((t_fd *)list->data)->list->data)->end && i < size)
 		{
-			ft_printf("while 2, i = %d, list->i = %d\n", i, ((t_buff *)((t_fd *)list->data)->list->data)->i);
 			(*line)[i++] = (((t_buff *)((t_fd *)list->data)->list->data)->str)[(((t_buff *)((t_fd *)list->data)->list->data)->i)++];
 		}
 		if (((t_buff *)((t_fd *)list->data)->list->data)->i == ((t_buff *)((t_fd *)list->data)->list->data)->end)
 		{
-			ft_printf("if 1, list->i = %d, list->end = %d\n", ((t_buff *)((t_fd *)list->data)->list->data)->i, ((t_buff *)((t_fd *)list->data)->list->data)->end);
 			tmp = ((t_fd *)list->data)->list->next;
 			ft_lstdelone(((t_fd *)list->data)->list, (void (*)(void *)) & free_buff);
 			((t_fd *)list->data)->list = tmp;
 		}
-		ft_printf("while end : list = %p, i = %d, size = %d\n", ((t_fd *)list->data)->list, i, size);
 	}
 	if (!(((t_fd *)list->data)->list))
 		ft_lstdelone(list, (void (*)(void *))&free_fd);
@@ -110,7 +106,6 @@ int	get_next_line(int fd, char **line)
 	if (fd < 0 || !line || read(fd, 0, 0) == -1)
 		return (-1);
 	tmp = find_fd(&list_fd, fd);
-	ft_printf("still here\n");
 	if (!tmp)
 		return (-1);
 	if (!(((t_fd *)tmp->data)->list))
@@ -120,7 +115,7 @@ int	get_next_line(int fd, char **line)
 			return (-1);
 	}
 	size = read_line(tmp);
-	ft_printf("\nsize = %d\n", size);
+	ft_printf("size = %2d, ", size);
 	if (size < 0)
 	{
 		ft_lstclear(&list_fd, (void (*)(void *))&free_fd);
