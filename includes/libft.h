@@ -6,7 +6,7 @@
 /*   By: ocmarout <ocmarout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 15:10:47 by ocmarout          #+#    #+#             */
-/*   Updated: 2021/10/14 16:38:50 by ocmarout         ###   ########.fr       */
+/*   Updated: 2021/10/15 13:23:04 by ocmarout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@
 # include <stddef.h>
 # include <stdint.h>
 # include "ft_printf.h"
-
-# define BUFFSIZE 10
 
 typedef struct s_list
 {
