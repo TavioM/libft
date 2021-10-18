@@ -6,7 +6,7 @@
 /*   By: ocmarout <ocmarout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 16:35:03 by ocmarout          #+#    #+#             */
-/*   Updated: 2021/10/14 19:18:08 by ocmarout         ###   ########.fr       */
+/*   Updated: 2021/10/18 18:34:36 by ocmarout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,9 @@
 
 # include "libft.h"
 
-# define BUFFSIZE 10
+# ifndef BUFFSIZE
+#  define BUFFSIZE 12
+# endif
 
 typedef struct s_fd
 {
