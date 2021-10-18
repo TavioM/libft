@@ -6,7 +6,7 @@
 /*   By: ocmarout <ocmarout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 14:20:21 by ocmarout          #+#    #+#             */
-/*   Updated: 2021/10/14 16:39:41 by ocmarout         ###   ########.fr       */
+/*   Updated: 2021/10/18 18:11:27 by ocmarout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	free_buff(t_buff *buff)
 
 void	free_fd(t_fd *fd)
 {
-	ft_lstclear(&(fd->list), (void (*)(void *))&free_buff);
+	ft_lstclear(&(fd->list), (void (*)(void *)) & free_buff);
 	free(fd);
 }
 

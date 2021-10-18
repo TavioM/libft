@@ -6,7 +6,7 @@
 /*   By: ocmarout <ocmarout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/01 12:37:26 by ocmarout          #+#    #+#             */
-/*   Updated: 2021/10/15 14:06:21 by ocmarout         ###   ########.fr       */
+/*   Updated: 2021/10/18 19:02:10 by ocmarout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,9 @@ static t_list	*find_fd(t_list **list, int fd)
 
 	if (!(*list))
 	{
-		*list = new_list_fd(fd);
-		return (*list);
+		*list = new_list_fd(-1);
+		ft_lstadd_back(list, new_list_fd(fd));
+		return (ft_lstlast(*list));
 	}
 	tmp = *list;
 	while (tmp)
@@ -38,13 +39,11 @@ static t_list	*find_fd(t_list **list, int fd)
 static int	read_line(t_list *list)
 {
 	int		i;
-	int		fd;
 	int		size;
 	t_list	*tmp;
 	t_list	*buff;
 
 	size = 0;
-	fd = ((t_fd *)list->data)->fd;
 	buff = ((t_fd *)list->data)->list;
 	while (1)
 	{
@@ -58,7 +57,7 @@ static int	read_line(t_list *list)
 		}
 		if (((t_buff *)buff->data)->end < BUFFSIZE)
 			return (size + 1);
-		tmp = new_buff(fd);
+		tmp = new_buff(((t_fd *)list->data)->fd);
 		if (!tmp)
 			return (-1);
 		ft_lstadd_back(&(((t_fd *)list->data)->list), tmp);
@@ -81,9 +80,7 @@ static int	copy_line(int size, t_list *list, char **line)
 	while (((t_fd *)list->data)->list && i < size)
 	{
 		while (((t_fd *)list->data)->list && ((t_buff *)((t_fd *)list->data)->list->data)->i < ((t_buff *)((t_fd *)list->data)->list->data)->end && i < size)
-		{
 			(*line)[i++] = (((t_buff *)((t_fd *)list->data)->list->data)->str)[(((t_buff *)((t_fd *)list->data)->list->data)->i)++];
-		}
 		if (((t_buff *)((t_fd *)list->data)->list->data)->i == ((t_buff *)((t_fd *)list->data)->list->data)->end)
 		{
 			tmp = ((t_fd *)list->data)->list->next;
@@ -92,7 +89,7 @@ static int	copy_line(int size, t_list *list, char **line)
 		}
 	}
 	if (!(((t_fd *)list->data)->list))
-		ft_lstdelone(list, (void (*)(void *))&free_fd);
+		ft_lstdelone(list, (void (*)(void *)) & free_fd);
 	(*line)[i - (i == size)] = 0;
 	return (i == size);
 }
@@ -115,10 +112,9 @@ int	get_next_line(int fd, char **line)
 			return (-1);
 	}
 	size = read_line(tmp);
-	ft_printf("size = %2d, ", size);
 	if (size < 0)
 	{
-		ft_lstclear(&list_fd, (void (*)(void *))&free_fd);
+		ft_lstclear(&list_fd, (void (*)(void *)) & free_fd);
 		list_fd = 0;
 		return (-1);
 	}
