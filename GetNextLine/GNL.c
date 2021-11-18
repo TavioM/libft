@@ -6,7 +6,7 @@
 /*   By: ocmarout <ocmarout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/01 12:37:26 by ocmarout          #+#    #+#             */
-/*   Updated: 2021/10/19 12:12:13 by ocmarout         ###   ########.fr       */
+/*   Updated: 2021/11/18 16:36:45 by ocmarout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,19 @@ static int	copy_line(int size, t_list *list, char **line)
 	return (i == size);
 }
 
+static int	return_line(int size, t_list **list_fd, t_list *tmp, char **line)
+{
+	int	return_value;
+
+	return_value = copy_line(size, tmp, line);
+	if (ft_lstsize(*list_fd) == 1)
+	{
+		ft_lstclear(list_fd, (void (*)(void *)) & free_fd);
+		*list_fd = 0;
+	}
+	return (return_value);
+}
+
 int	get_next_line(int fd, char **line)
 {
 	static t_list	*list_fd = 0;
@@ -119,5 +132,5 @@ int	get_next_line(int fd, char **line)
 		list_fd = 0;
 		return (-1);
 	}
-	return (copy_line(size, tmp, line));
+	return (return_line(size, &list_fd, tmp, line));
 }
