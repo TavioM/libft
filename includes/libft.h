@@ -6,7 +6,7 @@
 /*   By: ocmarout <ocmarout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 15:10:47 by ocmarout          #+#    #+#             */
-/*   Updated: 2021/10/15 13:23:04 by ocmarout         ###   ########.fr       */
+/*   Updated: 2021/12/13 18:49:18 by ocmarout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ size_t			ft_strlen(char const *s);
 size_t			ft_strlcpy(char *dest, char const *src, size_t size);
 size_t			ft_strlcat(char *dest, char const *src, size_t size);
 int				ft_isdigit(int c);
+int				ft_islower(int c);
+int				ft_isupper(int c);
 int				ft_isalpha(int c);
 int				ft_isalnum(int c);
 int				ft_isascii(int c);

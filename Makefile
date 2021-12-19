@@ -6,7 +6,7 @@
 #    By: ocmarout <ocmarout@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/13 02:53:19 by ocmarout          #+#    #+#              #
-#    Updated: 2021/10/14 16:19:55 by ocmarout         ###   ########.fr        #
+#    Updated: 2021/12/13 18:53:25 by ocmarout         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,8 +24,8 @@ SRCS		=	ft_memset.c			\
 				ft_strcmp.c			\
 				ft_strncmp.c		\
 				ft_atoi.c			\
-				ft_isspace.c		\
-				ft_isdigit.c		\
+				ft_isalnum.c		\
+				ft_isascii.c		\
 				ft_calloc.c			\
 				ft_strdup.c			\
 				ft_substr.c			\
