@@ -6,7 +6,7 @@
 /*   By: ocmarout <ocmarout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/01 12:37:26 by ocmarout          #+#    #+#             */
-/*   Updated: 2021/10/18 19:02:10 by ocmarout         ###   ########.fr       */
+/*   Updated: 2021/11/18 16:36:45 by ocmarout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,21 +70,20 @@ static int	copy_line(int size, t_list *list, char **line)
 	int		i;
 	t_list	*tmp;
 
-	*line = malloc(sizeof(char) * size);
-	if (!(*line))
-	{
-		ft_lstclear(&list, (void (*)(void *)) & free_fd);
-		return (-1);
-	}
 	i = 0;
 	while (((t_fd *)list->data)->list && i < size)
 	{
-		while (((t_fd *)list->data)->list && ((t_buff *)((t_fd *)list->data)->list->data)->i < ((t_buff *)((t_fd *)list->data)->list->data)->end && i < size)
-			(*line)[i++] = (((t_buff *)((t_fd *)list->data)->list->data)->str)[(((t_buff *)((t_fd *)list->data)->list->data)->i)++];
-		if (((t_buff *)((t_fd *)list->data)->list->data)->i == ((t_buff *)((t_fd *)list->data)->list->data)->end)
+		while (((t_fd *)list->data)->list
+			&& ((t_buff *)((t_fd *)list->data)->list->data)->i
+			< ((t_buff *)((t_fd *)list->data)->list->data)->end && i < size)
+			(*line)[i++] = (((t_buff *)((t_fd *)list->data)->list->data)->str)
+			[(((t_buff *)((t_fd *)list->data)->list->data)->i)++];
+		if (((t_buff *)((t_fd *)list->data)->list->data)->i
+				== ((t_buff *)((t_fd *)list->data)->list->data)->end)
 		{
 			tmp = ((t_fd *)list->data)->list->next;
-			ft_lstdelone(((t_fd *)list->data)->list, (void (*)(void *)) & free_buff);
+			ft_lstdelone(((t_fd *)list->data)->list,
+				(void (*)(void *)) & free_buff);
 			((t_fd *)list->data)->list = tmp;
 		}
 	}
@@ -92,6 +91,19 @@ static int	copy_line(int size, t_list *list, char **line)
 		ft_lstdelone(list, (void (*)(void *)) & free_fd);
 	(*line)[i - (i == size)] = 0;
 	return (i == size);
+}
+
+static int	return_line(int size, t_list **list_fd, t_list *tmp, char **line)
+{
+	int	return_value;
+
+	return_value = copy_line(size, tmp, line);
+	if (ft_lstsize(*list_fd) == 1)
+	{
+		ft_lstclear(list_fd, (void (*)(void *)) & free_fd);
+		*list_fd = 0;
+	}
+	return (return_value);
 }
 
 int	get_next_line(int fd, char **line)
@@ -112,11 +124,13 @@ int	get_next_line(int fd, char **line)
 			return (-1);
 	}
 	size = read_line(tmp);
-	if (size < 0)
+	if (size >= 0)
+		*line = malloc(sizeof(char) * size);
+	if (size < 0 || !(*line))
 	{
 		ft_lstclear(&list_fd, (void (*)(void *)) & free_fd);
 		list_fd = 0;
 		return (-1);
 	}
-	return (copy_line(size, tmp, line));
+	return (return_line(size, &list_fd, tmp, line));
 }
