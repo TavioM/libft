@@ -71,7 +71,7 @@ INCLUDES	=	-I./includes/
 
 NAME		=	libft.a
 
-CC			=	clang
+CC			=	gcc
 AR			=	ar rc
 RANLIB		=	ranlib
 MKDIR		=	mkdir -p
@@ -110,3 +110,5 @@ re		:	fclean ${OBJS_DIR} all
 
 norme	:
 			norminette
+
+.PHONY:	all clean fclean re norme
